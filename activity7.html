@@ -1,0 +1,311 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Ticket Booking - Stage 1</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f5fa;
+            color: #222;
+        }
+
+        header {
+            background-color: #061a40;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        nav {
+            background-color: #123b7a;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #061a40, #1769aa);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #061a40;
+        }
+
+        .matches {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .match-card {
+            background-color: white;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .match-card h3 {
+            color: #123b7a;
+            margin-bottom: 15px;
+        }
+
+        .match-card p {
+            margin: 10px 0;
+        }
+
+        .price {
+            color: #d62828;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        button {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 12px;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background-color: #b91c2b;
+        }
+
+        .booking {
+            background-color: white;
+            max-width: 550px;
+            margin: 35px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #061a40;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+
+        .booking button {
+            width: 100%;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #061a40;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .matches {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h2 {
+                font-size: 25px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .matches {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🏏 IPL Ticket Booking</h1>
+        <p>Experience the excitement of cricket!</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#matches">Matches</a>
+        <a href="#booking">Book Tickets</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <h2>Welcome to IPL 2026</h2>
+        <p>Select a match and book your tickets easily.</p>
+    </section>
+
+    <section class="container" id="matches">
+        <h2>Upcoming Match Options</h2>
+
+        <div class="matches">
+
+            <div class="match-card">
+                <h3>RCB vs CSK</h3>
+                <p>📅 Match Date: To be announced</p>
+                <p>📍 Bengaluru</p>
+                <p class="price">From ₹1,000</p>
+                <button type="button" onclick="selectMatch('RCB vs CSK')">
+                    Book Tickets
+                </button>
+            </div>
+
+            <div class="match-card">
+                <h3>MI vs KKR</h3>
+                <p>📅 Match Date: To be announced</p>
+                <p>📍 Mumbai</p>
+                <p class="price">From ₹1,200</p>
+                <button type="button" onclick="selectMatch('MI vs KKR')">
+                    Book Tickets
+                </button>
+            </div>
+
+            <div class="match-card">
+                <h3>SRH vs RR</h3>
+                <p>📅 Match Date: To be announced</p>
+                <p>📍 Hyderabad</p>
+                <p class="price">From ₹900</p>
+                <button type="button" onclick="selectMatch('SRH vs RR')">
+                    Book Tickets
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="booking" id="booking">
+        <h2>Ticket Booking Form</h2>
+
+        <form id="bookingForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="match">Select Match</label>
+            <select id="match" required>
+                <option value="">-- Select a Match --</option>
+                <option value="RCB vs CSK">RCB vs CSK</option>
+                <option value="MI vs KKR">MI vs KKR</option>
+                <option value="SRH vs RR">SRH vs RR</option>
+            </select>
+
+            <label for="tickets">Number of Tickets</label>
+            <select id="tickets" required>
+                <option value="1">1 Ticket</option>
+                <option value="2">2 Tickets</option>
+                <option value="3">3 Tickets</option>
+                <option value="4">4 Tickets</option>
+            </select>
+
+            <button type="submit">Submit Booking</button>
+            <p id="message"></p>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 IPL Ticket Booking System | Student Project</p>
+    </footer>
+
+    <script>
+        function selectMatch(matchName) {
+            document.getElementById("match").value = matchName;
+            document.getElementById("booking").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const match = document.getElementById("match").value;
+            const tickets = document.getElementById("tickets").value;
+            const message = document.getElementById("message");
+
+            if (name === "" || match === "") {
+                message.style.color = "red";
+                message.textContent = "Please fill in all required fields.";
+                return;
+            }
+
+            message.style.color = "green";
+            message.textContent =
+                "Booking request submitted for " + name +
+                " — " + tickets + " ticket(s) for " + match + "!";
+
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
