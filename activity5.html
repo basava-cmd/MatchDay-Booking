@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchDay Booking</title>
+    <link rel="stylesheet" href="activity5.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">🏆 MatchDay Booking</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#matches">Matches</a>
+            <a href="#booking">Book Now</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Book Your Match Experience</h1>
+        <p>Choose your favourite match and reserve your seats!</p>
+    </section>
+
+    <main class="container" id="booking">
+
+        <section class="booking-form">
+            <h2>Booking Form</h2>
+
+            <form id="matchForm">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="match">Select Match</label>
+                <select id="match" required>
+                    <option value="">Choose a match</option>
+                    <option value="Cricket">Cricket: Team A vs Team B</option>
+                    <option value="Football">Football: Team C vs Team D</option>
+                    <option value="Basketball">Basketball: Team E vs Team F</option>
+                </select>
+
+                <label for="tickets">Number of Tickets</label>
+                <input type="number" id="tickets" min="1" max="10" value="1" required>
+
+                <label>Seat Type</label>
+                <div class="options">
+                    <label><input type="radio" name="seat" value="Standard" checked> Standard</label>
+                    <label><input type="radio" name="seat" value="Premium"> Premium</label>
+                </div>
+
+                <button type="submit">Book Match</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </form>
+        </section>
+
+        <aside class="booking-summary">
+            <h2>Booking Summary</h2>
+            <p><strong>Name:</strong> <span id="summaryName">Not entered</span></p>
+            <p><strong>Match:</strong> <span id="summaryMatch">Not selected</span></p>
+            <p><strong>Tickets:</strong> <span id="summaryTickets">1</span></p>
+            <p><strong>Seat:</strong> <span id="summarySeat">Standard</span></p>
+            <p class="note">This is a sample booking demonstration. No real tickets are sold.</p>
+        </aside>
+
+    </main>
+
+    <section class="matches" id="matches">
+        <h2>Available Matches</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sport</th>
+                        <th>Match</th>
+                        <th>Venue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cricket</td>
+                        <td>Team A vs Team B</td>
+                        <td>Main Stadium</td>
+                    </tr>
+                    <tr>
+                        <td>Football</td>
+                        <td>Team C vs Team D</td>
+                        <td>City Ground</td>
+                    </tr>
+                    <tr>
+                        <td>Basketball</td>
+                        <td>Team E vs Team F</td>
+                        <td>Indoor Arena</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 MatchDay Booking | Student Responsive Website Activity</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("matchForm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            document.getElementById("summaryName").textContent =
+                document.getElementById("name").value;
+
+            document.getElementById("summaryMatch").textContent =
+                document.getElementById("match").value;
+
+            document.getElementById("summaryTickets").textContent =
+                document.getElementById("tickets").value;
+
+            document.getElementById("summarySeat").textContent =
+                document.querySelector('input[name="seat"]:checked').value;
+
+            alert("Sample booking updated successfully!");
+        });
+
+        form.addEventListener("reset", function() {
+            setTimeout(function() {
+                document.getElementById("summaryName").textContent = "Not entered";
+                document.getElementById("summaryMatch").textContent = "Not selected";
+                document.getElementById("summaryTickets").textContent = "1";
+                document.getElementById("summarySeat").textContent = "Standard";
+            }, 0);
+        });
+    </script>
+
+</body>
+</html>
